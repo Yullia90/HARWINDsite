@@ -270,7 +270,7 @@ body {
 .order-image {
   position: absolute;
   top: 0;
-  right: calc(100%-764px);
+  right: calc(100% - 764px);
   z-index: -1;
 }
 
