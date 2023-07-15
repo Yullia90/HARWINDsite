@@ -21,6 +21,32 @@ for (let i = 0; i < buttons.length; i++) {
     document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
   };
 }
+//при нажатии на кнопку инфо по заказу  попадает в форму
+
+  const orderButtons = document.querySelectorAll('.product-button');
+  const orderBurgerInput = document.getElementById('burger');
+  const orderPriceInput = document.getElementById('order-price');
+
+  orderButtons.forEach(button => {
+    button.addEventListener('click', event => {
+      const productItem = event.target.closest('.products-item');
+      const burgerTitle = productItem.querySelector('.products-item-title').textContent;
+      const burgerPrice = productItem
+        .querySelector('.products-item-price')
+        .getAttribute('data-base-price');
+
+      if (orderBurgerInput && orderPriceInput) {
+        orderBurgerInput.value = burgerTitle;
+        orderPriceInput.value = burgerPrice;
+      }
+    });
+  });
+
+
+
+
+
+
 
 //обращаемся к кажжому полю
 let burger = document.getElementById('burger');
@@ -42,7 +68,7 @@ document.getElementById('order-action').onclick = function () {
     [burger, name, phone].forEach(item => {
       item.value = ' '; //чистим строку
     });
-    alert('Спасибо за заказ!');
+    alert('Дякую за замовлення!');
   }
 };
 
